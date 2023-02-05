@@ -1,0 +1,90 @@
+<div class="container--fluid" id="container-todo">
+  <div class="row">
+    <div id="input-todo" style="background-color: #333438; height: 94vh;" class="col-md-3">
+      <h1 class="hed-main-tittle">Adicione uma nova Tarefa</h1>
+      <div>
+        <mat-card id="mat-card">
+          <form id="form-card" class="mt-3" [formGroup]="todoForm">
+            <mat-form-field appearance="outline">
+              <mat-label id="label">Task Name</mat-label>
+              <input id="input-task" formControlName="item" matInput placeholder="Placeholder">
+              <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+            </mat-form-field>
+            <button id="btn" *ngIf="!isEditEnabled" mat-raised-button [disabled]="todoForm.invalid" color="primary" (click)="addTask()">Add</button>
+            <button id="btn" *ngIf="isEditEnabled" mat-raised-button [disabled]="todoForm.invalid" color="primary" (click)="updateTask()">Update</button>
+          </form>
+        </mat-card>
+      </div>
+      <img id="svg-img" src="../../../assets/Checklist-pana.svg" alt="">
+    </div>
+    <div class="col-md-9 mt-3">
+
+      <div class="container-todo" cdkDropListGroup>
+        <div class="row">
+          <div class="col-md-4">
+            <!-- To do-->
+            <div class="example-container">
+              <div class="container-tittle">
+                <h2 class="hed-tittle hed-todo">TAREFAS <span *ngIf="tasks.length > 0"> - {{ tasks.length }}</span></h2>
+              </div>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="tasks"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of tasks; let i = index" cdkDrag>{{item.description}}
+                  <div class="box">
+                    <button mat-icon-button color="warn" (click)="deleteTask(i)"><mat-icon>delete</mat-icon></button>
+                    <button mat-icon-button color="primary" (click)="onEdit(item, i)"><mat-icon>edit</mat-icon></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+          <div class="col-md-4">
+            <!-- IN PROGRESS -->
+            <div class="example-container">
+              <div class="container-tittle">
+                <h2 class="hed-tittle hed-inprogress">EM ANDAMENTO <span *ngIf="inprogress.length > 0"> - {{ inprogress.length }}</span></h2>
+              </div>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="inprogress"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of inprogress; let i = index" cdkDrag>{{item.description}}
+                  <button mat-icon-button color="warn" (click)="deleteInProgressTask(i)"><mat-icon>delete</mat-icon></button>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <!-- DONE -->
+            <div class="example-container">
+              <div class="container-tittle">
+                <h2 class="hed-tittle hed-done">FEITO <span *ngIf="done.length > 0"> - {{ done.length }}</span></h2>
+              </div>
+
+              <div
+                cdkDropList
+                [cdkDropListData]="done"
+                class="example-list"
+                (cdkDropListDropped)="drop($event)">
+                <div class="example-box" *ngFor="let item of done; let i = index" cdkDrag>{{item.description}}
+                  <div class="box">
+                    <button mat-icon-button color="warn" (click)="deleteDoneTask(i)"><mat-icon>delete</mat-icon></button>
+                    <button id="check" mat-icon-button color="accent"><mat-icon>check_circle</mat-icon></button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

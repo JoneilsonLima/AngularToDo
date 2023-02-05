@@ -1,0 +1,138 @@
+:host mat-form-field {
+  width: 100%;
+}
+
+form {
+  padding: 10px;
+}
+
+#input-todo {
+  padding: 20px;
+  border-radius: 9px;
+  margin-top: 16px;
+}
+
+.example-container {
+  width: 400px;
+  max-width: 100%;
+  margin: 0 25px 25px 0;
+  display: inline-block;
+  vertical-align: top;
+}
+
+.example-list {
+  min-height: 60px;
+  background: #282828;
+  border-radius: 4px;
+  overflow: hidden;
+  display: block;
+  margin-top: 20px;
+}
+
+.example-box {
+  padding: 20px 10px;
+  border-bottom: solid 1px #333438;
+  color: #FFF;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+  cursor: move;
+  background: #282828;
+  font-size: 14px;
+}
+
+.cdk-drag-preview {
+  box-sizing: border-box;
+  border-radius: 4px;
+  box-shadow: 0 5px 5px -3px rgba(0, 0, 0, 0.2),
+              0 8px 10px 1px rgba(0, 0, 0, 0.14),
+              0 3px 14px 2px rgba(0, 0, 0, 0.12);
+}
+
+.cdk-drag-placeholder {
+  opacity: 0;
+}
+
+.cdk-drag-animating {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+.example-box:last-child {
+  border: none;
+}
+
+.example-list.cdk-drop-list-dragging .example-box:not(.cdk-drag-placeholder) {
+  transition: transform 250ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+
+.box {
+  display: grid;
+  grid-auto-flow: column;
+  grid-column-gap: 10px;
+}
+
+.container-tittle {
+  padding: 10px;
+  background-color: #282828;
+  border-radius: 5px;
+}
+
+.hed-tittle {
+  margin: 0;
+  padding: 4px 0 4px 9px;
+  color: #777777;
+  font-size: 1.4rem;
+  font-weight: 600;
+  border-radius: 4px;
+}
+
+.hed-todo {
+  border-left: 3px solid blue;
+}
+
+.hed-inprogress {
+  border-left: 3px solid yellow;
+}
+
+.hed-done {
+  border-left: 3px solid green;
+}
+
+.container-todo {
+  padding: 16px;
+  background-color: #333438;
+  border-radius: 9px;
+}
+
+.hed-main-tittle {
+  color: #FFF;
+  text-align: center;
+}
+
+#mat-card {
+  background-color: #282828;
+  color: #6E6F7B;
+  height: 180px;
+}
+
+#label {
+  color: #6E6F7B;
+}
+
+#btn {
+  margin-top: 20px;
+}
+
+#input-task {
+  color: #6E6F7B;
+}
+
+
+#svg-img {
+  margin-top: 60px;
+  width: 83%;
+  margin-left: 25px;
+}
